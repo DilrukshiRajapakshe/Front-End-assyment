@@ -16,7 +16,7 @@
  
 #### Exsample Url
 
-# http://localhost:8050/Stock-Item-eureka-server/api/v1/stock/S001
-# http://localhost:8050/payment-cart-eureka-server/api/v1/Order/P001
-# http://localhost:8050/registration-eureka-server/api/v1/admin/u001 
+#### http://localhost:8050/Stock-Item-eureka-server/api/v1/stock/S001
+#### http://localhost:8050/payment-cart-eureka-server/api/v1/Order/P001
+#### http://localhost:8050/registration-eureka-server/api/v1/admin/u001 
 
