@@ -2,8 +2,7 @@ package com.sliit.paf.payment.dto;
 
 
 public class OrderDetailDTO extends SuperDTO{
-
-
+    private String orderDetailID;
     private String orderId;
     private String itemCode;
     private int qty;
@@ -12,11 +11,20 @@ public class OrderDetailDTO extends SuperDTO{
     public OrderDetailDTO() {
     }
 
-    public OrderDetailDTO(String orderId, String itemCode, int qty, double unitPrice) {
+    public OrderDetailDTO(String orderDetailID, String orderId, String itemCode, int qty, double unitPrice) {
+        this.orderDetailID = orderDetailID;
         this.orderId = orderId;
         this.itemCode = itemCode;
         this.qty = qty;
         this.unitPrice = unitPrice;
+    }
+
+    public String getOrderDetailID() {
+        return orderDetailID;
+    }
+
+    public void setOrderDetailID(String orderDetailID) {
+        this.orderDetailID = orderDetailID;
     }
 
     public String getOrderId() {
@@ -54,7 +62,8 @@ public class OrderDetailDTO extends SuperDTO{
     @Override
     public String toString() {
         return "OrderDetailDTO{" +
-                "orderId='" + orderId + '\'' +
+                "orderDetailID='" + orderDetailID + '\'' +
+                ", orderId='" + orderId + '\'' +
                 ", itemCode='" + itemCode + '\'' +
                 ", qty=" + qty +
                 ", unitPrice=" + unitPrice +

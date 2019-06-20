@@ -29,13 +29,13 @@ public class OrderController {
         return new ResponseEntity<List<OrderDetailDTO>>(orders,httpHeaders, HttpStatus.OK);
     }
 
-    @GetMapping("/{id:O\\d{3}}")
+    @GetMapping("/{id}")
     public OrderDetailDTO findOrders(@PathVariable("id") String cId){
         OrderDetailDTO orderDetail = manageOrderService.findOrderDetail(cId);
         return orderDetail;
     }
 
-    @DeleteMapping("/{id:O\\d{3}}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteOrders(@PathVariable("id") String cId){
         manageOrderService.deleteOrderDetail(cId);
@@ -46,12 +46,12 @@ public class OrderController {
     public String saveOrders(@RequestBody OrderDetailDTO orderDetailDTO){
         System.out.println("sssssssssssssssssssssssssssssssssssssssssssss");
         manageOrderService.createOrderDetail(orderDetailDTO);
-        return orderDetailDTO.getOrderId();
+        return orderDetailDTO.getOrderDetailID();
     }
 
-    @PutMapping(value = "/{id:O\\d{3}}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity updateOrders(@PathVariable("id") String cId, @RequestBody OrderDetailDTO orderDetailDTO){
-        if (cId.equals(orderDetailDTO.getOrderId())){
+        if (cId.equals(orderDetailDTO.getOrderDetailID())){
             manageOrderService.updateOrderDetail(orderDetailDTO);
             return new ResponseEntity(HttpStatus.OK);
         }else {

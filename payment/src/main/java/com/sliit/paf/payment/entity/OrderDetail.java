@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 public class OrderDetail extends SuperEntity {
     @Id
+    private String orderDetailID;
     private String orderId;
     private String itemCode;
     private int qty;
@@ -13,11 +14,20 @@ public class OrderDetail extends SuperEntity {
     public OrderDetail() {
     }
 
-    public OrderDetail(String orderId, String itemCode, int qty, double unitPrice) {
+    public OrderDetail(String orderDetailID, String orderId, String itemCode, int qty, double unitPrice) {
+        this.orderDetailID = orderDetailID;
         this.orderId = orderId;
         this.itemCode = itemCode;
         this.qty = qty;
         this.unitPrice = unitPrice;
+    }
+
+    public String getOrderDetailID() {
+        return orderDetailID;
+    }
+
+    public void setOrderDetailID(String orderDetailID) {
+        this.orderDetailID = orderDetailID;
     }
 
     public String getOrderId() {
@@ -54,8 +64,9 @@ public class OrderDetail extends SuperEntity {
 
     @Override
     public String toString() {
-        return "OrderDetailDTO{" +
-                "orderId='" + orderId + '\'' +
+        return "OrderDetail{" +
+                "orderDetailID='" + orderDetailID + '\'' +
+                ", orderId='" + orderId + '\'' +
                 ", itemCode='" + itemCode + '\'' +
                 ", qty=" + qty +
                 ", unitPrice=" + unitPrice +
